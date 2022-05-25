@@ -3,14 +3,15 @@ import React from 'react'
 import { Card, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import ItemCount from '../ItemCount/ItemCount'
+import { CartContext } from '../../context/CartContext'
 
 //Exportacion de mi funcion ItemDetail, que es la encargada de recibir productos y
 // armar una card con sus caracteristicas
 export default function ItemDetail({item}) {
-  const [goToCart, setGoToCart] = React.useState(false)
-  const onAdd = (quantity) => {
-    setGoToCart(true)
-  }
+  
+  const [count, setCount] = React.useState(1)
+
+  const { addToCart } = React.useContext(CartContext)
 
   return (
     <div className='item-card'>
@@ -23,11 +24,14 @@ export default function ItemDetail({item}) {
                 the card's content.
                 </Card.Text>
                 <Button variant="primary">{item.price}</Button>
-                {
-                  goToCart 
-                  ? <Link to='/cart'>Terminar Compra</Link>
-                  : <ItemCount stock={item.stock} onAdd={onAdd}/>
-                }
+
+                <ItemCount 
+                stock={item.stock} 
+                onSubmit={() => addToCart(item, count)}
+                count={count}
+                setCount={setCount}
+                />
+
             </Card.Body>
         </Card>
     </div>

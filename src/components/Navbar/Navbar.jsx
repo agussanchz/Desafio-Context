@@ -1,8 +1,8 @@
 //Importaciones
 import React from 'react'
 import { Link } from 'react-router-dom' 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import CartWidget from '../CartWidget/CartWidget'
+
 
 //Exportaciones de mi funcion Navbar, donde creo un menu de navegacion
 export default function Navbar() {
@@ -16,9 +16,9 @@ export default function Navbar() {
         <ul className='nav__ul'>
           <li className='nav__li'> <Link className='nav__link'to={'/products'}>Productos</Link> </li>
           <li className='nav__li'> <Link className='nav__link'to={'/category/1'}>Teclados</Link> </li>
-          <li className='nav__li'> <Link className='nav__link'to={'/category/2'}>Mouses</Link> </li>
-          <li className='nav__li'> <Link className='nav__link'to={'/cart'}><FontAwesomeIcon icon={faCartShopping} /></Link> </li>
+          <li className='nav__li'> <Link className='nav__link'to={'/category/2'}>Mouses</Link> </li>     
         </ul>
+        <CartWidget/>
       </nav>
     </header>
   )

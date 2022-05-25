@@ -1,8 +1,8 @@
 import React from 'react'
 
-export default function ItemCount({stock, onAdd}) {
+export default function ItemCount({stock, onSubmit, count, setCount}) {
 
-    const [count, setCount] = React.useState(1)
+
 
     const increase = () => {
         setCount( count + 1)
@@ -20,8 +20,9 @@ export default function ItemCount({stock, onAdd}) {
         <span>{count}</span>
         <button disabled={count >= stock} onClick={increase}>+</button>
         <div>
-            <button disabled={stock <= 0} onClick={() => onAdd(count)}>Agregar al carrito</button>
+            <button disabled={stock <= 0} onClick={() => onSubmit()}>Agregar al carrito</button>
         </div>
     </div>
   )
 }
+ 
