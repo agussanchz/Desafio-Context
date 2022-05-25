@@ -24,7 +24,9 @@ const CartProvider = ({children}) => {
     }
   }
 
-  const removeFromCart = () => {
+  const removeFromCart = (id) => {
+    const newCart = cart.filter((carItem) => carItem.id !== id);
+    setCart(newCart)
   }
 
   const deleteAll = () => {
