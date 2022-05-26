@@ -1,9 +1,6 @@
 import React from 'react'
 
 export default function ItemCount({stock, onSubmit, count, setCount}) {
-
-
-
     const increase = () => {
         setCount( count + 1)
     }
@@ -11,8 +8,6 @@ export default function ItemCount({stock, onSubmit, count, setCount}) {
     const decrease = () => {
        setCount(count - 1)
     }
-
-
 
   return (
     <div className='counter'>
